@@ -22,7 +22,7 @@ function install_tar {
   wget $url -O $file_name && \
   tar -xvf $file_name && \
   cd $(echo $file_name | sed 's/\.tar.*//gi') && \
-  configure && \
+  ./configure && \
   make && \
   make install
 }
@@ -31,6 +31,6 @@ install_tar "https://github.com/westes/flex/releases/download/v2.6.4/$FLEX" \
             "$FLEX" \
             'Installing flex... hold onto your butts'
 
-install_tar "https://gstreamer.freedesktop.org/src/gstreamer/$GSTREAMER" \
-            $GSTREAMER \
-            'Installing gstreamer... hold onto your butts'
+#install_tar "https://gstreamer.freedesktop.org/src/gstreamer/$GSTREAMER" \
+            #$GSTREAMER \
+            #'Installing gstreamer... hold onto your butts'
