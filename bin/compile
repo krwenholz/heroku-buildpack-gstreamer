@@ -18,6 +18,7 @@ function install_tar {
   install_message=$3
   dir_name=$(echo $file_name | sed 's/\.tar.*//gi')
 
+  cd $BUILD_DIR && \
   echo $install_message && \
   wget $url -O $file_name && \
   tar -xvf $file_name && \
@@ -30,8 +31,6 @@ function install_tar {
 #----------------------------------------------------------------------------------
 # Begin Build
 #----------------------------------------------------------------------------------
-
-cd $BUILD_DIR
 
 install_tar "https://github.com/westes/flex/releases/download/v2.6.4/$FLEX" \
             "$FLEX" \
