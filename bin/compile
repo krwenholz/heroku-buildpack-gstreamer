@@ -21,9 +21,9 @@ function install {
   ./configure && ./make && ./make install
 }
 
-install 'https://github.com/westes/flex/releases/download/v2.6.4/flex-2.6.4.tar.gz'
-        'flex-2.6.2.target.gz' \
-        'Installing flex... hold onto your butts'
+#install 'https://github.com/westes/flex/releases/download/v2.6.4/flex-2.6.4.tar.gz'
+        #'flex-2.6.2.target.gz' \
+        #'Installing flex... hold onto your butts'
 
 install 'https://github.com/westes/flex/releases/download/v2.6.4/flex-2.6.4.tar.gz' \
         'gstreamer-1.14.1.tar.xz' \
