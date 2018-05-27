@@ -16,7 +16,7 @@ function install_tar {
   url=$1
   file_name=$2
   install_message=$3
-  dir_name= $(echo $file_name | sed 's/\.tar.*//gi')
+  dir_name=$(echo $file_name | sed 's/\.tar.*//gi')
 
   echo $install_message && \
   wget $url -O $file_name && \
