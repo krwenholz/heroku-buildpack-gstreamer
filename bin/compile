@@ -14,17 +14,19 @@ function install {
   file_name=$2
   install_message=$3
 
-  echo $install_message
-  wget $url
-  tar -xvf $file_name
-  cd $file_name
-  ./configure && ./make && ./make install
+  echo $install_message && \
+  wget $url -O $file_name && \
+  tar -xvf $file_name && \
+  cd $file_name && \
+  ./configure && \
+  ./make && \
+  ./make install
 }
 
 install 'https://github.com/westes/flex/releases/download/v2.6.4/flex-2.6.4.tar.gz' \
-        flex-2.6.2.target.gz \
+        'flex-2.6.2.target.gz' \
         'Installing flex... hold onto your butts'
 
-install 'https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.14.1.tar.xz' \
-        gstreamer-1.14.1.tar.xz \
-        'Installing gstreamer... hold onto your butts'
+#install 'https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.14.1.tar.xz' \
+        #'gstreamer-1.14.1.tar.xz' \
+        #'Installing gstreamer... hold onto your butts'
