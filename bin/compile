@@ -8,6 +8,7 @@ set -e
 export BUILD_DIR=$1
 export CACHE_DIR=$2
 export ENV_DIR=$3
+export PATH="$BUILD_DIR/bin":$PATH
 
 # Dependencies
 FLEX='flex-2.6.4.tar.gz'
@@ -24,7 +25,7 @@ function install_tar {
   wget $url -O $file_name && \
   tar -xvf $file_name && \
   cd $dir_name && \
-  ./configure --prefix=$BUILD_DIR && \
+  ./configure --prefix=$BUILD_DIR/bin && \
   make && \
   make install
 }
