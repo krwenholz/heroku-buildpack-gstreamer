@@ -15,9 +15,9 @@ function install {
   install_message=$3
 
   echo $install_message
-  wget https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.14.1.tar.xz
-  tar -xvf gstreamer-1.14.1.tar.xz
-  cd gstreamer-1.14.1
+  wget $url
+  tar -xvf $file_name
+  cd $file_name
   ./configure && ./make && ./make install
 }
 
