@@ -13,21 +13,6 @@ export ENV_DIR=$3
 FLEX='flex-2.6.4.tar.gz'
 GSTREAMER='gstreamer-1.14.1.tar.xz'
 
-function export_env_dir {
-  local ENV_DIR=$1
-  if [ -d "$ENV_DIR" ]; then
-    local whitelist_regex=${2:-''}
-    local blacklist_regex=${3:-'^(PATH|GIT_DIR|CPATH|CPPATH|LD_PRELOAD|LIBRARY_PATH)$'}
-    if [ -d "$ENV_DIR" ]; then
-      for e in $(ls $ENV_DIR); do
-        echo "$e" | grep -E "$whitelist_regex" | grep -qvE "$blacklist_regex" &&
-        export "$e=$(cat $ENV_DIR/$e)"
-        :
-      done
-    fi
-  fi
-}
-
 function install_tar {
   url=$1
   file_name=$2
@@ -38,9 +23,8 @@ function install_tar {
   echo $install_message && \
   wget $url -O $file_name && \
   tar -xvf $file_name && \
-  export_env_dir "$ENV_DIR" && \
   cd $dir_name && \
-  ./configure --prefix=$BUILD_DIR && \
+  ./configure --prefix=$CACHE_DIR && \
   make && \
   make install
 }
