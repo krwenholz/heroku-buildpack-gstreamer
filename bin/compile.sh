@@ -1,5 +1,16 @@
 #!/usr/bin/env bash
+# bin/compile <build-dir> <cache-dir>
 
+# fail fast
+set -e
+
+# parse args
 export BUILD_DIR=$1
 export CACHE_DIR=$2
 export ENV_DIR=$3
+
+echo "-----> Installing gstreamer... hold onto your butts"
+wget https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.14.1.tar.xz
+tar -zxvf gstreamer-1.14.1.tar.xz
+cd gstreamer-1.14.1
+./configure && ./make && ./make install
