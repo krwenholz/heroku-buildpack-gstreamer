@@ -7,7 +7,6 @@ set -e
 # parse args
 export BUILD_DIR=$1
 export CACHE_DIR=$2
-export ENV_DIR=$3
 
 # Dependencies
 FLEX='flex-2.6.4.tar.gz'
@@ -26,6 +25,12 @@ function install_tar {
   make && \
   make install
 }
+
+#----------------------------------------------------------------------------------
+# Begin Build
+#----------------------------------------------------------------------------------
+
+cd $BUILD_DIR
 
 install_tar "https://github.com/westes/flex/releases/download/v2.6.4/$FLEX" \
             "$FLEX" \
