@@ -24,7 +24,7 @@ function install_tar {
   wget $url -O $file_name && \
   tar -xvf $file_name && \
   cd $dir_name && \
-  ./configure --prefix=$CACHE_DIR && \
+  ./configure --prefix=$BUILD_DIR && \
   make && \
   make install
 }
